@@ -1,0 +1,63 @@
+# Environment variables (สำคัญ - ห้าม commit!)
+.env
+.env.local
+.env.production
+
+# Home Assistant sensitive files
+config/secrets.yaml
+config/known_devices.yaml
+config/home-assistant.log*
+config/.HA_VERSION
+config/.uuid
+config/.cloud/
+config/.storage/
+config/deps/
+config/tts/
+config/__pycache__/
+
+# Database files
+config/home-assistant_v2.db*
+config/*.db-wal
+config/*.db-shm
+
+# Mosquitto sensitive data
+mosquitto/data/mosquitto.db
+mosquitto/log/*.log
+
+# Grafana data
+grafana/data/
+
+# Backup files
+*.tar.gz
+*.zip
+backup_*/
+
+# System files
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker specific
+docker-compose.override.yml
+.docker/
+
+# Logs
+*.log
+logs/
+
+# SSL Certificates
+*.pem
+*.key
+*.crt
+*.cert
+
+# Media files (optional - ขึ้นอยู่กับว่าจะเก็บไว้ใน repo ไหม)
+# media/
+# config/www/
