@@ -9,11 +9,18 @@ services:
       - ./media:/media
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
+      # Bluetooth support
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
     restart: unless-stopped
     privileged: true
     network_mode: host
+    devices:
+      # Bluetooth device access
+      - /dev/ttyUSB0:/dev/ttyUSB0  # ถ้ามี USB Bluetooth
+      - /dev/ttyACM0:/dev/ttyACM0  # ถ้ามี ACM device
     environment:
       - TZ=Asia/Bangkok
+      - DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8123"]
       interval: 30s
